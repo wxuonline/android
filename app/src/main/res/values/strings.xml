@@ -2,4 +2,8 @@
     <string name="app_name">myFirstApp</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
+    <string name="one">one</string>
+    <string name="two">two</string>
+    <string name="three">three</string>
+    <string name="inputPhone">请输入要保存的电话号码</string>
 </resources>
