@@ -6,4 +6,5 @@
     <string name="two">two</string>
     <string name="three">three</string>
     <string name="inputPhone">请输入要保存的电话号码</string>
+    <string name="baiduUrl">https://baidu.com</string>
 </resources>

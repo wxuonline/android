@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.mainstay.MESSAGE";
@@ -40,6 +41,6 @@ public class MainActivity extends AppCompatActivity {
     public void openActivity(View view) {
         Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);
-
+//        Toast.makeText(getApplicationContext(),"Love",Toast.LENGTH_SHORT).show();
     }
 }
