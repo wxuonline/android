@@ -6,12 +6,14 @@
     android:gravity="center"
     android:background="#F2F2F2">
 
-    <TextView
-        android:id="@+id/two"
+    <EditText
+        android:id="@+id/one"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/border"
-        android:gravity="center"
-        android:textColor="#666"
-        android:textSize="18sp" />
+        android:layout_height="48dp"
+        android:hint="默认提示文本1"
+        android:inputType="text"
+        android:textColorHint="#aaa"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        ></EditText>
 </RelativeLayout>
