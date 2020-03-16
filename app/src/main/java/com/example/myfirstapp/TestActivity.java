@@ -26,8 +26,8 @@ public class TestActivity extends AppCompatActivity {
         TextView text2 = (TextView) findViewById(R.id.one);
 //        text2.setFocusable(true);
 //        text2.setFocusableInTouchMode(true);
-        text2.requestFocus();
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+//        text2.requestFocus();
+//        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
 //        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 //        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
 //        text2.setSelected(true);
@@ -58,4 +58,4 @@ public class TestActivity extends AppCompatActivity {
 
 
 
-//2020-03-13 https://www.runoob.com/w3cnote/android-tutorial-textview.html
+//2020-03-13 https://www.runoob.com/w3cnote/android-tutorial-edittext.html

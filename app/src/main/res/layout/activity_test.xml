@@ -6,14 +6,22 @@
     android:gravity="center"
     android:background="#F2F2F2">
 
+
+
+<!--    自适应editText-->
     <EditText
         android:id="@+id/one"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="默认提示文本1"
-        android:inputType="text"
-        android:textColorHint="#aaa"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        ></EditText>
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:hint="提示文字"
+        android:textColor="#666"
+        android:minLines="2"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:lineHeight="28dp"
+        android:background="@drawable/border"
+        android:textColorHint="#aaa"></EditText>
 </RelativeLayout>
