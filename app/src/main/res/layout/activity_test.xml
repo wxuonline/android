@@ -1,27 +1,28 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:gravity="center"
+    android:orientation="vertical"
     android:background="#F2F2F2">
 
 
+    <!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--        android:id="@+id/profile_image"-->
+<!--        android:layout_width="96dp"-->
+<!--        android:layout_height="96dp"-->
+<!--        android:src="@mipmap/tmall"-->
+<!--        app:civ_border_width="2dp"-->
+<!--        app:civ_border_color="#fff"/>-->
 
-<!--    自适应editText-->
-    <EditText
-        android:id="@+id/one"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="top"
-        android:hint="提示文字"
-        android:textColor="#666"
-        android:minLines="2"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:lineHeight="28dp"
-        android:background="@drawable/border"
-        android:textColorHint="#aaa"></EditText>
-</RelativeLayout>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/amin_pgbar"/>
+</LinearLayout>

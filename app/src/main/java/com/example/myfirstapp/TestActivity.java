@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -14,6 +15,9 @@ import android.text.style.URLSpan;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +27,34 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        TextView text2 = (TextView) findViewById(R.id.one);
+
+
+
+
+
+
+//        ImageView imgPgbar = (ImageView) findViewById(R.id.image);
+//        final AnimationDrawable animation = (AnimationDrawable) imgPgbar.getDrawable();
+//        imgPgbar.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                animation.start();
+//            }
+//        }, 100);
+//        final TextView btn1 = (TextView) findViewById(R.id.one);
+//        final TextView btn2 = (TextView) findViewById(R.id.two);
+//        btn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (btn2.getText().toString().equals("按钮不可用")) {
+//                    btn1.setEnabled(false);
+//                    btn2.setText("按钮可用");
+//                } else {
+//                    btn1.setEnabled(true);
+//                    btn2.setText("按钮不可用");
+//                }
+//            }
+//        });
 //        text2.setFocusable(true);
 //        text2.setFocusableInTouchMode(true);
 //        text2.requestFocus();
