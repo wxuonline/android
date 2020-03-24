@@ -13,6 +13,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestActivity extends AppCompatActivity {
     private Chronometer chronometer;
     private Button btn_start,btn_stop,btn_base,btn_format;
@@ -22,8 +25,13 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        String[] strs = {"基神","B神","翔神","曹神","J神"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, strs);
+        List<String> data = new ArrayList<String>();
+        data.add("基神");
+        data.add("B神");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,data);
+//        List<String> data = new ArrayList<String>();
+//        String[] strs = {"基神","B神","翔神","曹神","J神"};
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, strs);
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
     }
