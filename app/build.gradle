@@ -21,6 +21,14 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            res.srcDirs = [
+                'src/main/res/layout/common',
+                'src/main/res'
+            ]
+        }
+    }
 }
 
 dependencies {
@@ -32,4 +40,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+    implementation 'io.reactivex:rxjava:1.1.3'
 }
