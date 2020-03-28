@@ -14,7 +14,7 @@ import java.util.LinkedList;
 
 public class MyAdapter extends BaseAdapter {
     private Context mContext;
-    private LinkedList mData;
+    private LinkedList<Data> mData;
 
     public MyAdapter(Context mContext, LinkedList mData) {
         this.mContext = mContext;
@@ -47,8 +47,6 @@ public class MyAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-//        holder.img_icon.setImageResource(mData.get(position).getImgId());
-//        holder.txt_content.setText(mData.get(position).getContent());
         holder.img_icon.setImageResource(mData.get(position).getImgId());
         holder.txt_content.setText(mData.get(position).getContent());
         return convertView;
@@ -57,5 +55,13 @@ public class MyAdapter extends BaseAdapter {
     private class ViewHolder{
         ImageView img_icon;
         TextView txt_content;
+    }
+
+    public void add(Data data) {
+        if (mData == null) {
+            mData = new LinkedList<>();
+        }
+        mData.add(data);
+        notifyDataSetChanged();
     }
 }

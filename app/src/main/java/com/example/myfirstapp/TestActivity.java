@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.myfirstapp.common.Animal;
@@ -16,11 +17,13 @@ import com.example.myfirstapp.common.MyAdapter;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity implements View.OnClickListener {
     private List<Data> mData = null;
     private Context mContext;
     private MyAdapter mAdapter = null;
     private ListView listView;
+    private Button btn_add;
+    public int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,8 @@ public class TestActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(mContext, (LinkedList<Data>) mData);
         listView.setAdapter(mAdapter);
 
+        btn_add = (Button) findViewById(R.id.add);
+        btn_add.setOnClickListener(this);
 
     }
 
@@ -40,6 +45,15 @@ public class TestActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.add:
+                mAdapter.add(new Data(R.mipmap.tmall, "天猫" + flag));
+                flag++;
+                break;
+        }
+    }
 }
 
 
