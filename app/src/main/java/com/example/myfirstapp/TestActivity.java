@@ -1,28 +1,44 @@
 package com.example.myfirstapp;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.example.myfirstapp.common.BtnClickListener;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.widget.TextView;
 
 
 public class TestActivity extends AppCompatActivity {
-    private Button btn;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        btn = (Button) findViewById(R.id.btn);
+        TextView txtResult = (TextView) findViewById(R.id.content);
+        StringBuffer status = new StringBuffer();
+        //①获取系统的Configuration对象
+        Configuration cfg = getResources().getConfiguration();
+        //②想查什么查什么
+        status.append("densityDpi:" + cfg.densityDpi + "\n");
+        status.append("fontScale:" + cfg.fontScale + "\n");
+        status.append("hardKeyboardHidden:" + cfg.hardKeyboardHidden + "\n");
+        status.append("keyboard:" + cfg.keyboard + "\n");
+        status.append("keyboardHidden:" + cfg.keyboardHidden + "\n");
+        status.append("locale:" + cfg.locale + "\n");
+        status.append("mcc:" + cfg.mcc + "\n");
+        status.append("mnc:" + cfg.mnc + "\n");
+        status.append("navigation:" + cfg.navigation + "\n");
+        status.append("navigationHidden:" + cfg.navigationHidden + "\n");
+        status.append("orientation:" + cfg.orientation + "\n");
+        status.append("screenHeightDp:" + cfg.screenHeightDp + "\n");
+        status.append("screenWidthDp:" + cfg.screenWidthDp + "\n");
+        status.append("screenLayout:" + cfg.screenLayout + "\n");
+        status.append("smallestScreenWidthDp:" + cfg.densityDpi + "\n");
+        status.append("touchscreen:" + cfg.densityDpi + "\n");
+        status.append("uiMode:" + cfg.densityDpi + "\n");
+        txtResult.setText(status.toString());
     }
 
-    public void myClick(View view) {
-        Toast.makeText(TestActivity.this, "你点击了按钮4", Toast.LENGTH_SHORT).show();
-    }
+
 
 
 }

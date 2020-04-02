@@ -8,11 +8,9 @@
     android:gravity="center"
     android:background="#F2F2F2">
 
-    <ImageView
-        android:id="@+id/imgchange"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
+        android:id="@+id/content" />
 
 </RelativeLayout>
