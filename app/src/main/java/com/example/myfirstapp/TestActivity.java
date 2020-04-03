@@ -1,9 +1,14 @@
 package com.example.myfirstapp;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class TestActivity extends AppCompatActivity {
@@ -36,6 +41,17 @@ public class TestActivity extends AppCompatActivity {
         status.append("touchscreen:" + cfg.densityDpi + "\n");
         status.append("uiMode:" + cfg.densityDpi + "\n");
         txtResult.setText(status.toString());
+
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println(111);
+                Uri uri = Uri.fromParts("package", "myfirstapp", null);
+                Intent intent = new Intent(Intent.ACTION_DELETE, uri);
+                startActivity(intent);
+            }
+        }, 2000);
+
     }
 
 
