@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
     }
 
     /** Called when the user taps the Send button */
@@ -50,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
 //        set.start();
     }
     public void openActivity(View view) {
-        Intent intent = new Intent(this, TestActivity.class);
+//        Intent intent = new Intent(this, TestActivity.class);
+        Intent intent = new Intent(this, DialogActivity.class);
         startActivity(intent);
         Toast.makeText(getApplicationContext(),"Love",Toast.LENGTH_SHORT).show();
     }

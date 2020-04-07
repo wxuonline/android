@@ -8,9 +8,11 @@
     android:gravity="center"
     android:background="#F2F2F2">
 
-    <TextView
+    <Button
+        android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/content" />
+        android:text="按钮"
+        android:textSize="18sp" />
 
 </RelativeLayout>
