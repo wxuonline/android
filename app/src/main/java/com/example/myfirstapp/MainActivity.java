@@ -3,6 +3,7 @@ package com.example.myfirstapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent it = new Intent(MainActivity.this, com.example.myfirstapp.services.TestIntentService.class);
+        it.setAction("com.example.myfirstapp.action.BAZ");
+        startService(it);
 
     }
 
