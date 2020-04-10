@@ -3,16 +3,15 @@ package com.example.myfirstapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myfirstapp.services.TestIntentService;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
 import rx.functions.Action1;

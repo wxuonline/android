@@ -2,29 +2,33 @@ package com.example.myfirstapp.services;
 
 import android.app.IntentService;
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.IBinder;
+import android.util.Log;
+
+import androidx.core.app.NotificationCompat;
 
 import com.example.myfirstapp.MainActivity;
 import com.example.myfirstapp.R;
 
-/**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions, extra parameters and static
- * helper methods.
- */
 public class TestIntentService extends IntentService {
-    // TODO: Rename actions, choose action names that describe tasks that this
-    // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
     private static final String ACTION_FOO = "com.example.myfirstapp.action.FOO";
     private static final String ACTION_BAZ = "com.example.myfirstapp.action.BAZ";
-
-    // TODO: Rename parameters
     private static final String EXTRA_PARAM1 = "com.example.myfirstapp.extra.PARAM1";
     private static final String EXTRA_PARAM2 = "com.example.myfirstapp.extra.PARAM2";
+
+    public static String CHANNEL_ID = "com.example.recyclerviewtest.N1";
+    public static String CHANNEL_NAME = "TEST";
+    private static final String TAG = TestIntentService.class.getSimpleName();
+    public static boolean serviceIsLive;
+    private int NOTIFICATION_ID = 111;
 
     public TestIntentService() {
         super("TestIntentService");
@@ -32,26 +36,34 @@ public class TestIntentService extends IntentService {
 
     @Override
     public void onCreate() {
-        System.out.println(0);
         super.onCreate();
-        System.out.println(0.1);
-        Notification.Builder localBuilder = new Notification.Builder(this);
-        localBuilder.setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0));
-        localBuilder.setAutoCancel(false);
-        localBuilder.setSmallIcon(R.mipmap.jn);
-        localBuilder.setTicker("Foreground Service Start");
-        localBuilder.setContentTitle("Socket服务端");
-        localBuilder.setContentText("正在运行...");
-        startForeground(1, localBuilder.getNotification());
+        Log.d(TAG, "onCreate");
+
+        NotificationManager manager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationCompat.Builder builder;
+        //判断是否是8.0Android.O
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel chan1 = new NotificationChannel("static", "Primary Channel", NotificationManager.IMPORTANCE_HIGH);
+            manager.createNotificationChannel(chan1);
+            builder = new NotificationCompat.Builder(this, "static");
+        } else {
+            builder = new NotificationCompat.Builder(this);
+        }
+
+        builder.setDefaults(NotificationCompat.DEFAULT_SOUND);//设置通知铃声
+        Notification notification = builder.setTicker("您有新的消息")
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setSmallIcon(R.mipmap.jd)
+                .setWhen(System.currentTimeMillis())
+                .setContentTitle("标题标题标题标题标")
+                .setContentText("内容内容内容内容内容内容")
+                .setAutoCancel(true)
+                .build();
+
+        startForeground(110, notification);
     }
 
-    /**
-     * Starts this service to perform action Foo with the given parameters. If
-     * the service is already performing a task this action will be queued.
-     *
-     * @see IntentService
-     */
-    // TODO: Customize helper method
+
     public static void startActionFoo(Context context, String param1, String param2) {
         Intent intent = new Intent(context, TestIntentService.class);
         intent.setAction(ACTION_FOO);
@@ -60,13 +72,6 @@ public class TestIntentService extends IntentService {
         context.startService(intent);
     }
 
-    /**
-     * Starts this service to perform action Baz with the given parameters. If
-     * the service is already performing a task this action will be queued.
-     *
-     * @see IntentService
-     */
-    // TODO: Customize helper method
     public static void startActionBaz(Context context, String param1, String param2) {
         Intent intent = new Intent(context, TestIntentService.class);
         intent.setAction(ACTION_BAZ);
@@ -77,40 +82,35 @@ public class TestIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-
-        if (intent != null) {
-            final String action = intent.getAction();
-            System.out.println(action);
-            if (ACTION_FOO.equals(action)) {
-                System.out.println(1);
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionFoo(param1, param2);
-            } else if (ACTION_BAZ.equals(action)) {
-                System.out.println(2);
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionBaz(param1, param2);
-            }
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
+//        if (intent != null) {
+//            final String action = intent.getAction();
+//            System.out.println(action);
+//            if (ACTION_FOO.equals(action)) {
+//                System.out.println(1);
+//                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
+//                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
+//                handleActionFoo(param1, param2);
+//            } else if (ACTION_BAZ.equals(action)) {
+//                System.out.println(2);
+//                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
+//                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
+//                handleActionBaz(param1, param2);
+//            }
+//        }
     }
 
-    /**
-     * Handle action Foo in the provided background thread with the provided
-     * parameters.
-     */
     private void handleActionFoo(String param1, String param2) {
-        // TODO: Handle action Foo
         System.out.println(1.2);
 //        throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    /**
-     * Handle action Baz in the provided background thread with the provided
-     * parameters.
-     */
     private void handleActionBaz(String param1, String param2) {
-        // TODO: Handle action Baz
         System.out.println(2.2);
 //        throw new UnsupportedOperationException("Not yet implemented");
     }

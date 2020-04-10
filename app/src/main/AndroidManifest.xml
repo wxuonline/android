@@ -32,6 +32,7 @@
             android:name=".services.TestIntentService"
             android:exported="false"></service>
     </application>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECEIVE_MMS" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
