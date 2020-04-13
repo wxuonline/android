@@ -3,7 +3,9 @@ package com.example.myfirstapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myfirstapp.broadcastReceiver.MyReceiver;
 import com.example.myfirstapp.services.TestIntentService;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
@@ -18,6 +21,7 @@ import rx.functions.Action1;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.mainstay.MESSAGE";
+    MyReceiver myReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         it.setAction("com.example.myfirstapp.action.BAZ");
         startService(it);
 
+
+//        注册广播
+        myReceiver = new MyReceiver();
+        IntentFilter itFilter = new IntentFilter();
+        itFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        registerReceiver(myReceiver, itFilter);
     }
 
     /** Called when the user taps the Send button */
@@ -56,5 +66,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DialogActivity.class);
         startActivity(intent);
         Toast.makeText(getApplicationContext(),"Love",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(myReceiver);
+    }
+
+    public  static void isNetworkAvailable() {
+
     }
 }
