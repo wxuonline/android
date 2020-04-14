@@ -10,9 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".DialogActivity"
-            android:theme="@style/Theme.AppCompat.Dialog" />
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+<!--        <activity-->
+<!--            android:name=".DisplayMessageActivity"-->
+<!--            android:parentActivityName=".ui.login.LoginActivity">-->
+<!--            <meta-data-->
+<!--                android:name="android.support.PARENT_ACTIVITY"-->
+<!--                android:value=".ui.login.LoginActivity" />-->
+<!--        </activity>-->
+<!--        <activity android:name=".ui.login.LoginActivity">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+        <activity
+            android:name=".DialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" >
+            <intent-filter>
+                <action android:name="my_action"/>
+                <category android:name="my_category"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".TestActivity" />
         <activity
             android:name=".DisplayMessageActivity"
@@ -29,15 +51,21 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name=".broadcastReceiver.MyReceiver"
+            android:name=".broadcastReceiver.MyBcReceiver"
             android:enabled="true"
             android:exported="true"></receiver>
+
+        <receiver
+            android:name=".broadcastReceiver.MyReceiver"
+            android:enabled="true"
+            android:exported="true" />
 
         <service
             android:name=".services.TestIntentService"
             android:exported="false" />
     </application>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECEIVE_MMS" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
@@ -45,11 +73,12 @@
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
 </manifest>

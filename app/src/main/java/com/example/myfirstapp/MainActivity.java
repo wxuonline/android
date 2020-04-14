@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.myfirstapp.broadcastReceiver.MyReceiver;
 import com.example.myfirstapp.services.TestIntentService;
+import com.example.myfirstapp.ui.login.LoginActivity;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
 import rx.functions.Action1;
@@ -62,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
 //        set.start();
     }
     public void openActivity(View view) {
-//        Intent intent = new Intent(this, TestActivity.class);
-        Intent intent = new Intent(this, DialogActivity.class);
+        Intent intent = new Intent(this, TestActivity.class);
+//        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         Toast.makeText(getApplicationContext(),"Love",Toast.LENGTH_SHORT).show();
     }
