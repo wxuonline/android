@@ -38,45 +38,66 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-
-        RxPermissions.getInstance(TestActivity.this)
-            .request(Manifest.permission.READ_SMS)
-            .subscribe(new Action1<Boolean>() {
+        getData(new CallBack() {
             @Override
-            public void call(Boolean aBoolean) {
-                if (aBoolean) {//true表示获取权限成功（在android6.0以下默认为true）
-                    Log.d(TAG, "Manifest.permission.READ_SMS 获取成功");
-                    getMsgs(TestActivity.this);
-                } else {
-                    Log.d(TAG, "Manifest.permission.READ_SMS 获取失败");
-                }
+            public void getResult(String result) {
+                Log.d(TAG, "getResult: " + result);
             }
         });
-//        localBroadcastManager = LocalBroadcastManager.getInstance(this);
-//        localReceiver = new MyBcReceiver();
-//        intentFilter = new IntentFilter();
-//        intentFilter.addAction("com.jay.mybcreceiver.LOGIN_OTHER");
-//        localBroadcastManager.registerReceiver(localReceiver, intentFilter);
-//
-        Button btn = (Button) findViewById(R.id.btn);
-        btn.setOnClickListener(this);
+
+//        TestFragment tf = new TestFragment();
+//        getSupportFragmentManager().beginTransaction().replace(R.id.frameContain, tf).commit();
+//        getSupportFragmentManager().beginTransaction().show(tf);
+
+
+
+//        RxPermissions.getInstance(TestActivity.this)
+//            .request(Manifest.permission.READ_SMS)
+//            .subscribe(new Action1<Boolean>() {
+//            @Override
+//            public void call(Boolean aBoolean) {
+//                if (aBoolean) {//true表示获取权限成功（在android6.0以下默认为true）
+//                    Log.d(TAG, "Manifest.permission.READ_SMS 获取成功");
+//                    getMsgs(TestActivity.this);
+//                } else {
+//                    Log.d(TAG, "Manifest.permission.READ_SMS 获取失败");
+//                }
+//            }
+//        });
+////        localBroadcastManager = LocalBroadcastManager.getInstance(this);
+////        localReceiver = new MyBcReceiver();
+////        intentFilter = new IntentFilter();
+////        intentFilter.addAction("com.jay.mybcreceiver.LOGIN_OTHER");
+////        localBroadcastManager.registerReceiver(localReceiver, intentFilter);
+////
+//        Button btn = (Button) findViewById(R.id.btn);
+//        btn.setOnClickListener(this);
     }
 
-    public void getMsgs(Context context) {
-        Uri uri = Uri.parse("content://sms/");
-        Cursor cursor = getContentResolver().query(uri, new String[]{"address", "date", "type", "body"}, null, null, null);
-        while (cursor.moveToNext()) {
-            String address = cursor.getString(0);
-            String date = cursor.getString(1);
-            String type = cursor.getString(2);
-            String body = cursor.getString(3);
-            Log.d(TAG, "getMsgs: address => " + address);
-            Log.d(TAG, "getMsgs: date => " + date);
-            Log.d(TAG, "getMsgs: type => " + type);
-            Log.d(TAG, "getMsgs: body => " + body);
-        }
-        cursor.close();
+    public interface CallBack {
+        public void getResult(String result);
     }
+
+    public void getData(CallBack callBack) {
+        String msg = TestActivity.this.getPackageName();
+        callBack.getResult(msg);
+    }
+
+//    public void getMsgs(Context context) {
+//        Uri uri = Uri.parse("content://sms/");
+//        Cursor cursor = getContentResolver().query(uri, new String[]{"address", "date", "type", "body"}, null, null, null);
+//        while (cursor.moveToNext()) {
+//            String address = cursor.getString(0);
+//            String date = cursor.getString(1);
+//            String type = cursor.getString(2);
+//            String body = cursor.getString(3);
+//            Log.d(TAG, "getMsgs: address => " + address);
+//            Log.d(TAG, "getMsgs: date => " + date);
+//            Log.d(TAG, "getMsgs: type => " + type);
+//            Log.d(TAG, "getMsgs: body => " + body);
+//        }
+//        cursor.close();
+//    }
 
     @Override
     public void onClick(View view) {
