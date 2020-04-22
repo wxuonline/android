@@ -9,4 +9,5 @@
     <string name="baiduUrl">https://baidu.com</string>
     <string name="tmall">天猫</string>
     <string name="title">标题</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
