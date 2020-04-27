@@ -8,21 +8,10 @@
     android:gravity="center"
     android:background="#F2F2F2">
 
-    <Button
-        android:id="@+id/btn"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="按钮"
-        android:textSize="18sp" />
+        android:src="@drawable/amin_pgbar"
+        android:id="@+id/loading" />
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/frameContain"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
-<!--    <fragment-->
-<!--        android:id="@+id/fragmentTest"-->
-<!--        android:name="com.example.myfirstapp.TestFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_below="@+id/btn" />-->
 </RelativeLayout>
