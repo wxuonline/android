@@ -6,11 +6,13 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.myfirstapp.broadcastReceiver.MyReceiver;
@@ -32,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
         Intent it = new Intent(MainActivity.this, com.example.myfirstapp.services.TestIntentService.class);
         it.setAction("com.example.myfirstapp.action.BAZ");
         startService(it);
+
+//        渐变动画
+        ImageView img = (ImageView) findViewById(R.id.imageView);
+        TransitionDrawable td = (TransitionDrawable) img.getDrawable();
+        td.startTransition(3000);
+
+
 
 
 //        注册广播
