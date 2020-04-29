@@ -73,8 +73,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openActivity(View view) {
 //        Intent intent = new Intent(this, NewsActivity.class);
-        Intent intent = new Intent(this, TestActivity.class);
+//        Intent intent = new Intent(this, TestActivity.class);
 //        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, PaintActivity.class);
         startActivity(intent);
         Toast.makeText(getApplicationContext(),"Love",Toast.LENGTH_SHORT).show();
     }
