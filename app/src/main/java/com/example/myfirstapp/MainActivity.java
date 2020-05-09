@@ -11,6 +11,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -73,10 +75,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openActivity(View view) {
 //        Intent intent = new Intent(this, NewsActivity.class);
-//        Intent intent = new Intent(this, TestActivity.class);
+        Intent intent = new Intent(this, TestActivity.class);
 //        Intent intent = new Intent(this, LoginActivity.class);
-        Intent intent = new Intent(this, PaintActivity.class);
+//        Intent intent = new Intent(this, PaintActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.anim_show, R.anim.anim_hide);
+
         Toast.makeText(getApplicationContext(),"Love",Toast.LENGTH_SHORT).show();
     }
 

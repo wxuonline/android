@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PaintActivity">
-    <com.example.myfirstapp.test.PaintView
+    <com.example.myfirstapp.test.ClipView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

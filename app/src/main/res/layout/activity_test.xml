@@ -1,17 +1,46 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TestActivity"
+    android:id="@+id/ly_root"
     android:orientation="vertical"
-    android:padding="5dp"
-    android:gravity="center"
     android:background="#F2F2F2">
 
-    <ImageView
+    <Button
+        android:id="@+id/btn_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/amin_pgbar"
-        android:id="@+id/loading" />
+        android:text="动画1" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btn_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动画2" />
+
+    <Button
+        android:id="@+id/btn_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动画3" />
+
+    <Button
+        android:id="@+id/btn_four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动画4" />
+    <Button
+        android:id="@+id/btn_five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动画5" />
+
+    <ImageView
+        android:id="@+id/img_tmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/tmall" />
+
+</LinearLayout>
